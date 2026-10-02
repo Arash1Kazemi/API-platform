@@ -1,0 +1,83 @@
+<title>fal Value Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/*__CSS__*/
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">fal.ai model prices &middot; checked 2 Oct 2026</p>
+    <h1>fal Value Map</h1>
+    <p class="lede">Every dot is a model you can call on fal. Further left costs less, higher is preferred more often in blind tests. The blue line marks the best quality you can buy at each price, so pick the cheapest blue dot that is good enough.</p>
+  </header>
+
+  <div class="best" id="best" aria-label="Best value pick for each job"></div>
+
+  <div class="filters" id="filters">
+    <label class="f"><span>My budget</span><span class="money"><i>$</i><input id="budget" type="number" inputmode="decimal" min="0" step="1" value="20" aria-label="Budget in US dollars"></span></label>
+    <div class="f" id="f-show"><span>Show</span>
+      <span class="seg" role="group" aria-label="Which models to show">
+        <button type="button" data-v="all" aria-pressed="true">All models</button>
+        <button type="button" data-v="value" aria-pressed="false">Best value only</button>
+      </span>
+    </div>
+    <label class="f chk" id="f-label"><input type="checkbox" id="labelAll"><span>Show more labels</span></label>
+    <span class="sp"></span>
+    <div class="dl" id="dl" hidden>
+      <span class="f">Download data</span>
+      <button class="btn" type="button" data-fmt="csv">CSV</button>
+      <button class="btn" type="button" data-fmt="json">JSON</button>
+    </div>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs" aria-label="Model type"></div>
+  <main id="panels"></main>
+
+  <section class="about" aria-label="About these numbers">
+    <div>
+      <h2>Reading the quality score</h2>
+      <p>Quality is an Elo score from Artificial Analysis. People see two outputs side by side, without knowing which model made which, and pick the one they prefer. The score comes from thousands of those votes.</p>
+      <div class="elo-scale" aria-label="What an Elo gap means">
+        <div><b>25</b><span>points apart: higher model preferred about 54% of the time</span></div>
+        <div><b>50</b><span>points: about 57%</span></div>
+        <div><b>100</b><span>points: about 64%</span></div>
+        <div><b>200</b><span>points: about 76%</span></div>
+      </div>
+      <p class="note" style="margin-top:10px">Each board has its own scale, so compare scores inside one tab only. Error bars are roughly 6 to 18 points. The chart axis does not start at zero because only gaps between scores mean anything.</p>
+    </div>
+    <div>
+      <h2>How the prices were checked</h2>
+      <ul>
+        <li>Prices come from each model's own page on fal on 2 Oct 2026, the line that reads "Your request will cost...". Models billed by tokens (GPT Image, Nano Banana 2 Lite) show an estimate for a 1K image.</li>
+        <li>For video, the price shown is the setting that matches the price Artificial Analysis lists for that model, usually the maker's default resolution. Lower resolutions cost less but were not ranked.</li>
+        <li>fal usually charges what the model's maker charges. A few models cost more on fal than on the maker's own API, for example Gemini TTS and Google's image models. Compare if one model will take most of your spend.</li>
+        <li>Prices change. FLUX 3 has a 50% launch discount until 8 Oct 2026. The H3 video models had one until 30 Sep 2026, and fal's pages still showed the discounted rate on 2 Oct. This page uses the regular rates, so check the model page before you commit.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Good to know about fal billing</h2>
+      <ul>
+        <li>You pay only for successful outputs. Server errors and time spent waiting in the queue are free.</li>
+        <li>Credits are prepaid. Purchased credits expire 365 days after purchase.</li>
+        <li>New accounts can run 2 requests at once. The limit rises as you buy credits, up to 40.</li>
+        <li>To read live prices from your own code, call <span class="mono">GET https://api.fal.ai/v1/models/pricing?endpoint_id=a,b,c</span> with your API key. It takes up to 50 endpoint IDs per call and cannot list every model.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Sources and gaps</h2>
+      <ul>
+        <li><a href="https://fal.ai/pricing" target="_blank" rel="noopener">fal pricing page</a>, <a href="https://fal.ai/docs/platform-apis/v1/models/pricing" target="_blank" rel="noopener">pricing API</a>, <a href="https://fal.ai/docs/documentation/model-apis/faq" target="_blank" rel="noopener">billing FAQ</a></li>
+        <li>Quality: Artificial Analysis boards for <a href="https://artificialanalysis.ai/image/leaderboard/text-to-image" target="_blank" rel="noopener">text-to-image</a>, <a href="https://artificialanalysis.ai/image/leaderboard/editing" target="_blank" rel="noopener">image editing</a>, <a href="https://artificialanalysis.ai/video/leaderboard/text-to-video" target="_blank" rel="noopener">text-to-video</a>, <a href="https://artificialanalysis.ai/video/leaderboard/image-to-video" target="_blank" rel="noopener">image-to-video</a> and <a href="https://artificialanalysis.ai/text-to-speech/leaderboard" target="_blank" rel="noopener">text-to-speech</a></li>
+        <li>Not covered: speech-to-text, music, 3D, avatars, upscaling and language models. Models with no score are listed but not plotted.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/*__DATA__*/
+/*__JS__*/
+</script>

@@ -1,0 +1,326 @@
+[
+ {
+  "id": "h3-max-i2v",
+  "name": "MiniMax H3 Max",
+  "maker": "MiniMax and fal",
+  "endpoint": "minimax/h3-max/image-to-video",
+  "price": 0.08,
+  "approx": false,
+  "basis": "768p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.05
+   },
+   {
+    "label": "768p",
+    "price": 0.08
+   },
+   {
+    "label": "1080p",
+    "price": 0.16
+   }
+  ],
+  "elo": 1195,
+  "ci": 9,
+  "note": "Number 1 on the image-to-video board and the cheapest model in the top group. fal post-trained it from MiniMax H3. Prices shown are the regular rates; the 50% launch discount was due to end on 30 Sep 2026, so confirm the live price."
+ },
+ {
+  "id": "wan-3-i2v",
+  "name": "Wan 3.0",
+  "maker": "Alibaba",
+  "endpoint": "alibaba/wan-3.0/image-to-video",
+  "price": 0.2,
+  "approx": false,
+  "basis": "1080p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.05
+   },
+   {
+    "label": "720p",
+    "price": 0.1
+   },
+   {
+    "label": "1080p",
+    "price": 0.2
+   }
+  ],
+  "elo": 1164,
+  "ci": 8,
+  "note": "Strong second choice. Ranked at the 1080p setup, which costs 2.5 times H3 Max at 768p."
+ },
+ {
+  "id": "seedance-2-0-i2v",
+  "name": "Seedance 2.0 (US-hosted)",
+  "maker": "ByteDance",
+  "endpoint": "bytedance/seedance-2.0/us/image-to-video",
+  "price": 0.37,
+  "approx": true,
+  "basis": "720p (fal says roughly $0.37 per second)",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.1731
+   },
+   {
+    "label": "720p",
+    "price": 0.37
+   }
+  ],
+  "elo": 1176,
+  "ci": null,
+  "note": "Top-tier quality but about 4.6 times the price of H3 Max. Billed by tokens."
+ },
+ {
+  "id": "grok-video-1-5-i2v",
+  "name": "Grok Imagine Video 1.5",
+  "maker": "xAI",
+  "endpoint": "xai/grok-imagine-video/v1.5/image-to-video",
+  "price": 0.14,
+  "approx": false,
+  "basis": "720p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.08
+   },
+   {
+    "label": "720p",
+    "price": 0.14
+   },
+   {
+    "label": "1080p",
+    "price": 0.25
+   }
+  ],
+  "elo": 1098,
+  "ci": 8,
+  "note": "Audio is included. Clips up to 15 seconds."
+ },
+ {
+  "id": "veo-3-1-i2v",
+  "name": "Veo 3.1",
+  "maker": "Google",
+  "endpoint": "fal-ai/veo3.1/image-to-video",
+  "price": 0.4,
+  "approx": false,
+  "basis": "720p or 1080p, with audio",
+  "tiers": [
+   {
+    "label": "720p/1080p, audio off",
+    "price": 0.2
+   },
+   {
+    "label": "720p/1080p, audio on",
+    "price": 0.4
+   },
+   {
+    "label": "4K, audio off",
+    "price": 0.4
+   },
+   {
+    "label": "4K, audio on",
+    "price": 0.6
+   }
+  ],
+  "elo": 1082,
+  "ci": 7,
+  "note": "Costs 5 times H3 Max and ranks lower."
+ },
+ {
+  "id": "veo-3-1-lite-i2v",
+  "name": "Veo 3.1 Lite",
+  "maker": "Google",
+  "endpoint": "fal-ai/veo3.1/lite/image-to-video",
+  "price": 0.08,
+  "approx": false,
+  "basis": "1080p, with audio",
+  "tiers": [
+   {
+    "label": "720p, audio off",
+    "price": 0.03
+   },
+   {
+    "label": "720p, audio on",
+    "price": 0.05
+   },
+   {
+    "label": "1080p, audio off",
+    "price": 0.05
+   },
+   {
+    "label": "1080p, audio on",
+    "price": 0.08
+   }
+  ],
+  "elo": 1071,
+  "ci": 8,
+  "note": "Same price as H3 Max at 768p but ranks 124 points lower."
+ },
+ {
+  "id": "veo-3-1-fast-i2v",
+  "name": "Veo 3.1 Fast",
+  "maker": "Google",
+  "endpoint": "fal-ai/veo3.1/fast/image-to-video",
+  "price": 0.15,
+  "approx": false,
+  "basis": "720p or 1080p, with audio",
+  "tiers": [
+   {
+    "label": "720p/1080p, audio off",
+    "price": 0.1
+   },
+   {
+    "label": "720p/1080p, audio on",
+    "price": 0.15
+   },
+   {
+    "label": "4K, audio off",
+    "price": 0.3
+   },
+   {
+    "label": "4K, audio on",
+    "price": 0.35
+   }
+  ],
+  "elo": 1066,
+  "ci": null,
+  "note": "Cheaper than Veo 3.1 and ranks about the same."
+ },
+ {
+  "id": "kling-3-pro-i2v",
+  "name": "Kling 3.0 Pro",
+  "maker": "Kuaishou",
+  "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+  "price": 0.168,
+  "approx": false,
+  "basis": "with audio",
+  "tiers": [
+   {
+    "label": "audio off",
+    "price": 0.112
+   },
+   {
+    "label": "audio on",
+    "price": 0.168
+   },
+   {
+    "label": "audio on + voice control",
+    "price": 0.196
+   }
+  ],
+  "elo": 1055,
+  "ci": 6,
+  "note": "Supports custom characters and objects, and multi-shot prompts."
+ },
+ {
+  "id": "kling-3-std-i2v",
+  "name": "Kling 3.0 Standard",
+  "maker": "Kuaishou",
+  "endpoint": "fal-ai/kling-video/v3/standard/image-to-video",
+  "price": 0.126,
+  "approx": false,
+  "basis": "with audio",
+  "tiers": [
+   {
+    "label": "audio off",
+    "price": 0.084
+   },
+   {
+    "label": "audio on",
+    "price": 0.126
+   },
+   {
+    "label": "audio on + voice control",
+    "price": 0.154
+   }
+  ],
+  "elo": 1051,
+  "ci": null,
+  "note": "Cheaper Kling. Ranks about the same as Kling 3.0 Pro."
+ },
+ {
+  "id": "ltx-2-5-fast-i2v",
+  "name": "LTX-2.5 Fast",
+  "maker": "Lightricks",
+  "endpoint": "lightricks/ltx-2.5/image-to-video/fast",
+  "price": 0.13,
+  "approx": false,
+  "basis": "1080p",
+  "tiers": [
+   {
+    "label": "720p",
+    "price": 0.09
+   },
+   {
+    "label": "1080p",
+    "price": 0.13
+   },
+   {
+    "label": "1440p",
+    "price": 0.19
+   },
+   {
+    "label": "4K",
+    "price": 0.3
+   }
+  ],
+  "elo": 1038,
+  "ci": 9,
+  "note": "Open-weights model with audio included at every resolution."
+ },
+ {
+  "id": "h3-max-turbo-i2v",
+  "name": "MiniMax H3 Max Turbo",
+  "maker": "MiniMax and fal",
+  "endpoint": "minimax/h3-max-turbo/image-to-video",
+  "price": 0.04,
+  "approx": false,
+  "basis": "768p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.025
+   },
+   {
+    "label": "768p",
+    "price": 0.04
+   },
+   {
+    "label": "1080p",
+    "price": 0.08
+   }
+  ],
+  "elo": null,
+  "ci": null,
+  "note": "Half the price of H3 Max at regular rates. Not ranked yet, so test it on your own images. Its 50% launch discount was due to end on 30 Sep 2026."
+ },
+ {
+  "id": "wan-3-prime-i2v",
+  "name": "Wan 3.0 Prime",
+  "maker": "Alibaba",
+  "endpoint": "alibaba/wan-3.0-prime/image-to-video",
+  "price": 0.14,
+  "approx": false,
+  "basis": "720p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.068
+   },
+   {
+    "label": "720p",
+    "price": 0.14
+   },
+   {
+    "label": "1080p",
+    "price": 0.28
+   }
+  ],
+  "elo": null,
+  "ci": null,
+  "note": "Faster turnaround with good visual continuity. Not ranked separately."
+ }
+]

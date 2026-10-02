@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+**/.next
+**/.env
+**/.env.local
+**/*.db
+**/*.db-journal
+**/*.db-wal
+**/*.db-shm
+data
+api-value-map
+.git

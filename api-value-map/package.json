@@ -1,0 +1,12 @@
+{
+  "name": "fal-value-map",
+  "private": true,
+  "description": "Interactive price-versus-quality comparison of fal.ai models (checked 2026-10-02).",
+  "scripts": {
+    "build": "python build.py",
+    "test": "node shoot.js && node audit.js && node dots.js && node tap.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.0"
+  }
+}

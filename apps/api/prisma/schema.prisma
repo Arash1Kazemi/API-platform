@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// One kind of job, e.g. "Text to image". Quality (elo) is only comparable inside one category.
+model Category {
+  id          String  @id // short slug, e.g. "t2i"
+  name        String // "Text to image"
+  unit        String // what `price` is per, e.g. "USD per image"
+  chartFactor Float   @default(1) // price x factor = chart price (video: 60 turns per-second into per-minute)
+  chartUnit   String  @default("") // axis title, e.g. "USD per minute of video"
+  board       String  @default("") // where the quality scores come from
+  anchor      String  @default("") // e.g. "FLUX.2 [dev] is fixed at 1000"
+  footnote    String  @default("")
+  sortOrder   Int     @default(0)
+  models      Model[]
+}
+
+model Model {
+  id         String       @id // slug, e.g. "grok-img-2"
+  categoryId String
+  provider   String       @default("fal")
+  name       String
+  maker      String
+  endpoint   String // provider endpoint id, e.g. "xai/grok-imagine-image/v2.0/text-to-image"
+  price      Float // the price drawn on the chart; one of the tiers
+  basis      String       @default("") // words describing which setting `price` is
+  approx     Boolean      @default(false) // price is an estimate
+  elo        Int? // quality score; null = not ranked
+  ci         Int? // 95% interval (+/-), null = unknown
+  note       String       @default("")
+  checkedAt  DateTime     @default(now())
+  category   Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  tiers      PriceTier[]
+  history    PriceHistory[]
+
+  @@index([categoryId])
+}
+
+model PriceTier {
+  id      Int    @id @default(autoincrement())
+  modelId String
+  label   String
+  price   Float
+  model   Model  @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@index([modelId])
+}
+
+// Every time a price is set or changes, one row is added. Lets you see price moves over time.
+model PriceHistory {
+  id      Int      @id @default(autoincrement())
+  modelId String
+  price   Float
+  source  String // "seed" | "manual" | "fal-api"
+  at      DateTime @default(now())
+  model   Model    @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@index([modelId, at])
+}
+
+// Keys for your own scripts and apps. Only the SHA-256 hash is stored.
+model ApiKey {
+  id         String    @id @default(cuid())
+  name       String
+  prefix     String // first characters, so you can recognise a key in the list
+  hash       String    @unique
+  canWrite   Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+  revokedAt  DateTime?
+}
+
+// Saved cost-planner scenarios.
+model Plan {
+  id        String   @id @default(cuid())
+  name      String
+  budget    Float    @default(0)
+  lines     String // JSON: [{ modelId, perMonth }]
+  updatedAt DateTime @updatedAt
+}

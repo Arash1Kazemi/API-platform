@@ -1,0 +1,330 @@
+[
+ {
+  "id": "wan-3-t2v",
+  "name": "Wan 3.0",
+  "maker": "Alibaba",
+  "endpoint": "alibaba/wan-3.0/text-to-video",
+  "price": 0.2,
+  "approx": false,
+  "basis": "1080p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.05
+   },
+   {
+    "label": "720p",
+    "price": 0.1
+   },
+   {
+    "label": "1080p",
+    "price": 0.2
+   }
+  ],
+  "elo": 1157,
+  "ci": 9,
+  "note": "Top of the text-to-video board. Cheaper at 480p and 720p, but the ranking was measured at the 1080p setup."
+ },
+ {
+  "id": "seedance-2-5-t2v",
+  "name": "Seedance 2.5 (US-hosted)",
+  "maker": "ByteDance",
+  "endpoint": "bytedance/seedance-2.5/us/text-to-video",
+  "price": 0.5676,
+  "approx": false,
+  "basis": "720p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.2646
+   },
+   {
+    "label": "720p",
+    "price": 0.5676
+   },
+   {
+    "label": "1080p",
+    "price": 1.396278
+   }
+  ],
+  "elo": 1144,
+  "ci": 9,
+  "note": "Clips up to 30 seconds with synced audio. Billed by tokens, which works out to about $0.57 per second at 720p."
+ },
+ {
+  "id": "h3-max-t2v",
+  "name": "MiniMax H3 Max",
+  "maker": "MiniMax and fal",
+  "endpoint": "minimax/h3-max/text-to-video",
+  "price": 0.08,
+  "approx": false,
+  "basis": "768p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.05
+   },
+   {
+    "label": "768p",
+    "price": 0.08
+   },
+   {
+    "label": "1080p",
+    "price": 0.16
+   }
+  ],
+  "elo": 1134,
+  "ci": 11,
+  "note": "fal's post-trained version of MiniMax H3 with better prompt following and aesthetics. Prices shown are the regular rates. fal ran a 50% launch discount that its page says ended on 30 Sep 2026, yet the page still showed the discounted number on 2 Oct, so confirm the live price before you buy credits."
+ },
+ {
+  "id": "h3-max-turbo-t2v",
+  "name": "MiniMax H3 Max Turbo",
+  "maker": "MiniMax and fal",
+  "endpoint": "minimax/h3-max-turbo/text-to-video",
+  "price": 0.04,
+  "approx": false,
+  "basis": "768p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.025
+   },
+   {
+    "label": "768p",
+    "price": 0.04
+   },
+   {
+    "label": "1080p",
+    "price": 0.08
+   }
+  ],
+  "elo": null,
+  "ci": null,
+  "note": "Half the price of H3 Max at regular rates. Not ranked yet, so test it on your own prompts. Its 50% launch discount was due to end on 30 Sep 2026."
+ },
+ {
+  "id": "grok-video-1-5-t2v",
+  "name": "Grok Imagine Video 1.5",
+  "maker": "xAI",
+  "endpoint": "xai/grok-imagine-video/v1.5/text-to-video",
+  "price": 0.25,
+  "approx": false,
+  "basis": "1080p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.08
+   },
+   {
+    "label": "720p",
+    "price": 0.14
+   },
+   {
+    "label": "1080p",
+    "price": 0.25
+   }
+  ],
+  "elo": 1046,
+  "ci": 10,
+  "note": "Audio is included. Clips up to 15 seconds."
+ },
+ {
+  "id": "kling-3-pro-t2v",
+  "name": "Kling 3.0 Pro",
+  "maker": "Kuaishou",
+  "endpoint": "fal-ai/kling-video/v3/pro/text-to-video",
+  "price": 0.168,
+  "approx": false,
+  "basis": "with audio",
+  "tiers": [
+   {
+    "label": "audio off",
+    "price": 0.112
+   },
+   {
+    "label": "audio on",
+    "price": 0.168
+   },
+   {
+    "label": "audio on + voice control",
+    "price": 0.196
+   }
+  ],
+  "elo": 1000,
+  "ci": null,
+  "note": "Defines Elo 1000 on this board."
+ },
+ {
+  "id": "veo-3-1-t2v",
+  "name": "Veo 3.1",
+  "maker": "Google",
+  "endpoint": "fal-ai/veo3.1",
+  "price": 0.4,
+  "approx": false,
+  "basis": "720p or 1080p, with audio",
+  "tiers": [
+   {
+    "label": "720p/1080p, audio off",
+    "price": 0.2
+   },
+   {
+    "label": "720p/1080p, audio on",
+    "price": 0.4
+   },
+   {
+    "label": "4K, audio off",
+    "price": 0.4
+   },
+   {
+    "label": "4K, audio on",
+    "price": 0.6
+   }
+  ],
+  "elo": 968,
+  "ci": 11,
+  "note": "Google's flagship video model. Now costs several times more than models that rank higher."
+ },
+ {
+  "id": "veo-3-1-fast-t2v",
+  "name": "Veo 3.1 Fast",
+  "maker": "Google",
+  "endpoint": "fal-ai/veo3.1/fast",
+  "price": 0.15,
+  "approx": false,
+  "basis": "720p or 1080p, with audio",
+  "tiers": [
+   {
+    "label": "720p/1080p, audio off",
+    "price": 0.1
+   },
+   {
+    "label": "720p/1080p, audio on",
+    "price": 0.15
+   },
+   {
+    "label": "4K, audio off",
+    "price": 0.3
+   },
+   {
+    "label": "4K, audio on",
+    "price": 0.35
+   }
+  ],
+  "elo": 961,
+  "ci": null,
+  "note": "Cheaper Veo with the same ranking band."
+ },
+ {
+  "id": "veo-3-1-lite-t2v",
+  "name": "Veo 3.1 Lite",
+  "maker": "Google",
+  "endpoint": "fal-ai/veo3.1/lite",
+  "price": 0.08,
+  "approx": false,
+  "basis": "1080p, with audio",
+  "tiers": [
+   {
+    "label": "720p, audio off",
+    "price": 0.03
+   },
+   {
+    "label": "720p, audio on",
+    "price": 0.05
+   },
+   {
+    "label": "1080p, audio off",
+    "price": 0.05
+   },
+   {
+    "label": "1080p, audio on",
+    "price": 0.08
+   }
+  ],
+  "elo": 949,
+  "ci": 11,
+  "note": "The cheapest Veo. Ranks well below H3 Max at the same price."
+ },
+ {
+  "id": "ltx-2-5-fast-t2v",
+  "name": "LTX-2.5 Fast",
+  "maker": "Lightricks",
+  "endpoint": "lightricks/ltx-2.5/text-to-video/fast",
+  "price": 0.13,
+  "approx": false,
+  "basis": "1080p",
+  "tiers": [
+   {
+    "label": "720p",
+    "price": 0.09
+   },
+   {
+    "label": "1080p",
+    "price": 0.13
+   },
+   {
+    "label": "1440p",
+    "price": 0.19
+   },
+   {
+    "label": "4K",
+    "price": 0.3
+   }
+  ],
+  "elo": 950,
+  "ci": 11,
+  "note": "Open-weights model with audio included at every resolution."
+ },
+ {
+  "id": "wan-3-prime-t2v",
+  "name": "Wan 3.0 Prime",
+  "maker": "Alibaba",
+  "endpoint": "alibaba/wan-3.0-prime/text-to-video",
+  "price": 0.14,
+  "approx": false,
+  "basis": "720p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.068
+   },
+   {
+    "label": "720p",
+    "price": 0.14
+   },
+   {
+    "label": "1080p",
+    "price": 0.28
+   }
+  ],
+  "elo": null,
+  "ci": null,
+  "note": "Faster turnaround and smooth camera motion. Costs 40% more than Wan 3.0 and is not ranked separately."
+ },
+ {
+  "id": "grok-video-1-5-lite-t2v",
+  "name": "Grok Imagine Video 1.5 Lite",
+  "maker": "xAI",
+  "endpoint": "xai/grok-imagine-video/v1.5/lite/text-to-video",
+  "price": 0.03,
+  "approx": false,
+  "basis": "720p",
+  "tiers": [
+   {
+    "label": "480p",
+    "price": 0.02
+   },
+   {
+    "label": "720p",
+    "price": 0.03
+   },
+   {
+    "label": "1080p",
+    "price": 0.14
+   }
+  ],
+  "elo": null,
+  "ci": null,
+  "note": "Very cheap at 480p and 720p. Not ranked yet."
+ }
+]
