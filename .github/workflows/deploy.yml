@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    env:
+      SERVER: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Load SSH key and server fingerprint
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Copy code to server
+        run: |
+          test -f docker-compose.yml || { echo "docker-compose.yml missing from checkout - refusing to sync"; exit 1; }
+          # Leading "/" anchors a pattern to the repo root, so only the top-level
+          # folders are skipped. /data/ is the SQLite database and must survive deploys.
+          rsync -az --delete \
+            --exclude='.git/' --exclude='.env' --exclude='node_modules/' \
+            --exclude='/data/' --exclude='/api-value-map/' \
+            ./ "$SERVER:/var/www/api-platform/"
+
+      - name: Build and start
+        run: |
+          ssh "$SERVER" '
+            set -e
+            cd /var/www/api-platform
+            docker compose build
+            docker compose up -d --wait --wait-timeout 300
+            docker compose ps
+          '
