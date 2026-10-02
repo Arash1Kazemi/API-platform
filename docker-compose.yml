@@ -13,10 +13,7 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: file:/data/platform.db
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD in .env}
-      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
       FAL_KEY: ${FAL_KEY:-}
-      COOKIE_SECURE: ${COOKIE_SECURE:-false}
       PORT: 4000
     volumes:
       - ./data:/data        # the SQLite database lives here. Back up this folder.

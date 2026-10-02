@@ -64,18 +64,6 @@ model PriceHistory {
   @@index([modelId, at])
 }
 
-// Keys for your own scripts and apps. Only the SHA-256 hash is stored.
-model ApiKey {
-  id         String    @id @default(cuid())
-  name       String
-  prefix     String // first characters, so you can recognise a key in the list
-  hash       String    @unique
-  canWrite   Boolean   @default(false)
-  createdAt  DateTime  @default(now())
-  lastUsedAt DateTime?
-  revokedAt  DateTime?
-}
-
 // Saved cost-planner scenarios.
 model Plan {
   id        String   @id @default(cuid())

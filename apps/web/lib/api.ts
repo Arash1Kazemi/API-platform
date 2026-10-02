@@ -7,7 +7,7 @@ export class ApiError extends Error {
   }
 }
 
-/** Calls the API through the /api proxy. A 401 sends you to the login page. */
+/** Calls the API through the /api proxy. */
 export async function api<T>(path: string, init: RequestInit & { json?: unknown } = {}): Promise<T> {
   const { json, headers, ...rest } = init;
   const res = await fetch(`/api${path}`, {
@@ -15,10 +15,6 @@ export async function api<T>(path: string, init: RequestInit & { json?: unknown 
     headers: { ...(json !== undefined ? { 'content-type': 'application/json' } : {}), ...headers },
     body: json !== undefined ? JSON.stringify(json) : rest.body,
   });
-  if (res.status === 401 && !path.startsWith('/auth/login')) {
-    window.location.href = '/login';
-    throw new ApiError(401, 'Not logged in');
-  }
   const text = await res.text();
   const data = text ? JSON.parse(text) : null;
   if (!res.ok) {

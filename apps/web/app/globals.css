@@ -100,7 +100,6 @@ pre { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; 
 .chart .lbl { fill: var(--ink); font-size: 11.5px; pointer-events: none; }
 .readout { min-height: 92px; }
 
-.login { max-width: 340px; margin: 14vh auto 0; }
 @media (max-width: 640px) {
   h1 { font-size: 1.35rem; }
   .shell { padding: 0 12px 40px; }

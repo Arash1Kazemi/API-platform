@@ -39,15 +39,6 @@ export interface Model {
   beatenBy: string | null;
 }
 
-export interface ApiKeyRow {
-  id: string;
-  name: string;
-  prefix: string;
-  canWrite: boolean;
-  createdAt: string;
-  lastUsedAt: string | null;
-}
-
 export interface PlanLine {
   modelId: string;
   perMonth: number;

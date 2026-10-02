@@ -3,8 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { PrismaModule } from './prisma/prisma.module';
-import { AuthModule } from './auth/auth.module';
-import { AuthGuard } from './auth/auth.guard';
 import { CatalogModule } from './catalog/catalog.module';
 import { PricingModule } from './pricing/pricing.module';
 import { PlansModule } from './plans/plans.module';
@@ -14,19 +12,15 @@ import { HealthController } from './health.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    // 300 requests per minute per IP overall; login has a stricter limit of its own.
+    // No login: anyone who can reach the site can read and change data.
+    // This only slows down abuse: 300 requests per minute per IP.
     ThrottlerModule.forRoot([{ ttl: 60_000, limit: 300 }]),
     PrismaModule,
-    AuthModule,
     CatalogModule,
     PricingModule,
     PlansModule,
   ],
   controllers: [HealthController],
-  providers: [
-    SeedService,
-    { provide: APP_GUARD, useClass: ThrottlerGuard },
-    { provide: APP_GUARD, useClass: AuthGuard },
-  ],
+  providers: [SeedService, { provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
 export class AppModule {}

@@ -51,11 +51,9 @@ export default function Overview() {
         })}
       </div>
       <h2 style={{ marginTop: 28 }}>Use it from your own code</h2>
-      <p className="muted small">
-        Create a key on the <Link href="/admin/keys">API keys</Link> page, then:
-      </p>
-      <pre>{`curl -H "x-api-key: ap_..." https://YOUR-SERVER/api/models?category=t2i&bestValue=true
-curl -H "x-api-key: ap_..." "https://YOUR-SERVER/api/export?format=csv" -o models.csv`}</pre>
+      <p className="muted small">No key or login is needed. Call the same address as this website:</p>
+      <pre>{`curl "https://YOUR-SERVER/api/models?category=t2i&bestValue=true"
+curl "https://YOUR-SERVER/api/export?format=csv" -o models.csv`}</pre>
     </Shell>
   );
 }
